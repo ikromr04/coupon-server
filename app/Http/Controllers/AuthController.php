@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Coupon;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+  public function index()
+  {
+    return Coupon::get();
+  }
+
   public function login()
   {
     request()->validate([
