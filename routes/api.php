@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\CouponController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,4 +20,6 @@ Route::post('/auth/login', [AuthController::class, 'login']);
 Route::group(['middleware' => ['auth:sanctum']], function () {
   Route::get('/auth/login', [AuthController::class, 'check']);
   Route::delete('/auth/logout', [AuthController::class, 'logout']);
+
+  Route::put('/coupons', [CouponController::class, 'use']);
 });
